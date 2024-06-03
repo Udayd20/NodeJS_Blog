@@ -1,0 +1,5 @@
+//What ate the files to ignore meaning not uploading to the github
+
+
+node_modules/
+.env

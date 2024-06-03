@@ -1,0 +1,129 @@
+npm init -y(for creating a package.json file, important file for npm project meaning of -y telling yes to all the questions which is asking)
+
+npm install i bcrypt connect -mongo cookie-parser dotenv ejs express express-ejs-layouts express-session jsonwebtoken method-override mongoose
+
+This code is using the npm (Node Package Manager) command to install multiple packages for a Node.js project. Let's break it down line by line:
+
+npm install i bcrypt connect -mongo cookie-parser dotenv ejs express express-ejs-layo<wbr>uts express-session jsonwebtoken method-override mongoose
+
+This line is installing multiple packages separated by spaces.
+The packages being installed are:
+bcrypt: A library for hashing passwords.
+connect-mongo: A MongoDB session store for Express.js.
+cookie-parser: A middleware for parsing cookies in Express.js.
+dotenv: A module for loading environment variables from a .env file.
+ejs: A template engine for rendering HTML templates.
+express: A web application framework for Node.js.
+express-ejs-lay<wbr>outs: A layout support for EJS templates in Express.js.
+express-session<wbr>: A middleware for managing sessions in Express.js.
+jsonwebtoken: A library for generating and verifying JSON Web Tokens (JWT).
+method-override<wbr>: A middleware for overriding HTTP methods in Express.js.
+mongoose: An Object Data Modeling (ODM) library for MongoDB and Node.js.
+In this line of code, we are using a special program called "npm" to install multiple packages for our project. Each package has a specific purpose and helps us do different things in our program.
+
+For example: - The "bcrypt" package helps us securely store and check passwords. - The "connect-mongo" package helps us store session data in a database called MongoDB. - The "cookie-parser" package helps us read and write cookies, which are small pieces of information stored by a website on a user's computer. - The "dotenv" package helps us load configuration settings from a special file called ".env". - The "ejs" package helps us create and display web pages using a special language called HTML. - The "express" package helps us build web applications using the JavaScript programming language. - The "express-ejs-layouts" package helps us organize and reuse parts of our web pages, like headers and footers. - The "express-session" package helps us manage user sessions, which are like temporary storage areas for each user of our web application. - The "jsonwebtoken" package helps us create and verify special codes called JSON Web Tokens, which can be used to securely transmit information between different parts of our program. - The "method-override" package helps us use special HTTP methods in our web application, like "PUT" and "DELETE". - The "mongoose" package helps us work with a database called MongoDB, which is a popular way to store and retrieve data for our program.
+
+So, by installing these packages, we are adding special tools and code pieces to our program that make it easier for us to build a web application. Each package has its own job and helps us with a specific task, like handling passwords, storing data, or creating web pages.
+
+npm i nodemon --save-dev
+
+Sure! Let me explain it in simpler terms:
+
+When we create a computer program, we often use different tools and pieces of code to help us build it. These tools and code pieces are called "packages" or "libraries". They provide us with ready-made functions and features that we can use in our program.
+When we create a Node.js project, we often use different tools and libraries to help us develop the project. These tools and libraries are called dependencies. Some dependencies are needed for the project to work properly, while others are only needed during the development process.
+
+The --save-dev flag is like a special instruction that tells npm to save a particular dependency (in this case, nodemon) as a development dependency. It means that nodemon is not necessary for the final version of the project that will be used by people, but it is very helpful for the developers while they are working on the project.
+
+During development, nodemon automatically restarts the Node.js application whenever we make changes to the code. This saves us time because we don't have to manually restart the application every time we make a change. It's like having a helper that watches our code and automatically refreshes the application for us.
+
+So, the --save-dev flag is just a way to tell npm to remember that nodemon is a helpful tool for developers, but it's not needed when the project is finished and ready to be used by others.
+
+go to script in package.json and add start:"app.js" this will be the main file to sun
+
+"dev": "nodemon app.js"
+
+add this also beacuse when we make changes that should reflect instead of refreshing every time
+
+
+Create app.js file
+
+
+
+//Creating express server
+
+require('dotenv').config();
+
+const express = require('express');
+const expresslayout=require('express-ejs-layouts')
+const app = express();//Creats express application and it needs port also
+const PORT = 5000 || process.env.PORT;//process.env.PORT is used to host on a server
+
+
+app.use(express.static('public'));
+//Templating engine
+app.use(expresslayout);
+app.set('layout','./layouts/main');
+app.set('view engine','ejs');
+
+app.use('/',require('./server/routes/main.js'))
+app.listen(PORT,()=>
+{
+    console.log(`App is running on port ${PORT}`);
+})
+
+
+Sure! Let me explain it in simpler terms:
+
+This code is creating a server using a tool called Express. A server is like a computer program that listens for requests from other computers and sends back responses.
+
+First, the code imports some necessary tools and libraries. It uses a tool called dotenv to load configuration settings from a special file. Then, it imports Express and a library called express-ejs-layouts.
+
+Next, it creates an instance of the Express application and assigns it to a variable called "app". Think of it as creating a blank canvas for our server.
+
+The code sets a port number for the server to listen on. A port is like a door number on a building. It helps other computers find our server. In this case, it sets the port to 5000, but if that's not available, it uses a port number from a special environment variable called "process.env.PORT". It's like having a backup door number.
+
+The code tells the server to use a folder called "public" to serve static files. Static files are things like images, stylesheets, and JavaScript files that the server sends to the user's web browser.
+
+
+Then, it sets up a templating engine called EJS. A templating engine helps us create dynamic web pages. It uses a special language called EJS to mix HTML code with dynamic data.
+
+The code sets the layout for our web pages. A layout is like a blueprint for our web pages. It helps us organize and reuse parts of our pages, like headers and footers.
+
+Next, it tells the server to use a file called "main.js" for handling requests that come to the root URL ("/"). It's like having a special person who knows how to handle different requests and send back the right responses.
+
+Finally, the code tells the server to start listening on the specified port. When the server starts, it displays a message in the console to let us know that it's running.
+
+So, this code sets up an Express server, configures it to serve static files, uses a templating engine for dynamic web pages, and handles requests coming to the root URL. It's like building a server that can respond to different requests and show web pages to users.
+
+
+
+
+const express =require ('express')
+
+const router = express.Router()
+
+
+//Routes
+router.get('',(req,res)=>
+    {
+        res.send("Hello World");
+    })
+
+
+module.exports = router;
+
+Sure! Let me explain it in simpler terms:
+
+This code is creating a special type of object called a "router" using a tool called Express. Think of a router as a set of instructions that tells our server how to handle different requests.
+
+First, the code imports the Express tool and assigns it to a variable called "express". It's like getting a special toolbox that helps us build our server.
+
+Then, it creates a new router object using the "express.Router()" function. It's like creating a blank set of instructions that we can fill in later.
+
+Next, the code defines a route for our server. A route is like a specific path or URL that a user can visit. In this case, the route is an empty string, which means it matches the root URL ("/"). When a user visits the root URL, the code inside the function will run.
+
+Inside the function, it sends a response back to the user's web browser. The response is a simple message saying "Hello World". It's like sending a message back to someone who visited our website.
+
+Finally, the code exports the router object so that other parts of our server can use it. It's like packaging up our set of instructions and giving it to someone else who needs it.
+
+So, this code creates a router object, defines a route for the root URL, and sends a "Hello World" message as the response. It's like creating a set of instructions for our server to say hello to anyone who visits our website.
