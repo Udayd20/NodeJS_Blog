@@ -127,3 +127,11 @@ Inside the function, it sends a response back to the user's web browser. The res
 Finally, the code exports the router object so that other parts of our server can use it. It's like packaging up our set of instructions and giving it to someone else who needs it.
 
 So, this code creates a router object, defines a route for the root URL, and sends a "Hello World" message as the response. It's like creating a set of instructions for our server to say hello to anyone who visits our website.
+
+
+Day 2
+
+Created views folder inside views file calledindex.ejs is created and inside views layout folder is created and inside layout main.ejs is created
+
+Went to index.ejs
+Went to main.ejs

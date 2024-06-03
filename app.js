@@ -5,7 +5,7 @@ require('dotenv').config();
 const express = require('express');
 const expresslayout=require('express-ejs-layouts')
 const app = express();//Creats express application and it needs port also
-const PORT = 5000 || process.env.PORT;//process.env.PORT is used to host on a server
+const PORT = 6000 || process.env.PORT;//process.env.PORT is used to host on a server
 
 
 app.use(express.static('public'));
